@@ -42,7 +42,25 @@
 		update member
 		set name=#{name}
 		where id=#{id};
-	
 	</update>
+	
+	<select id="selectboard" resultType="map" parameterType="board">
+		select 
+		a.id,
+		a.title,
+		a.content,
+		a.file1Name,
+		a.file1SName,
+		a.reg_date,
+		a.m_id,
+		a.update_date,
+		b.id,
+		b.email,
+		b.name
+		
+		from board as a
+		inner join member as b
+		on a.m_id = b.id
+	</select>
 
 </mapper>

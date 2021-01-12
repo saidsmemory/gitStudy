@@ -1,12 +1,14 @@
 package spring.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import spring.dao.MemberDao;
+import spring.dto.Board;
 import spring.dto.Member;
 
 @Service
@@ -36,4 +38,8 @@ public class MemberService {
 		dao.updatemember(member);
 	}
 
+	
+	public List<Map> boardList(Board board){
+		return dao.selectboard(board);
+	}
 }

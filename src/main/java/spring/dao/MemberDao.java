@@ -1,11 +1,13 @@
 package spring.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import spring.dto.Board;
 import spring.dto.Member;
 
 @Component
@@ -34,4 +36,8 @@ public class MemberDao {
 		ss.update("spring.sql.Mapper.updatemember", member);
 	}
 	
+	
+	 public List<Map> selectboard(Board board) {
+		 return ss.selectList("spring.sql.Mapper.selectboard", board);		 
+	 }
 }
